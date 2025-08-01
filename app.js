@@ -76,7 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .catch(() => {
         // Fallback to local JSON file
-        fetch('/data/news.json')
+        // Fallback to a static JSON file located in static/data. Using
+        // '/static/data/news.json' ensures the file is served correctly when
+        // deployed as a static site on Vercel.
+        fetch('/static/data/news.json')
           .then(res => res.json())
           .then(allArticles => {
             // Filter manually based on params
@@ -109,6 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
     articles.forEach(article => {
       const card = document.createElement('div');
       card.className = 'card';
+      // Make the whole card clickable to open the article link
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => {
+        if (article.url) {
+          window.open(article.url, '_blank');
+        }
+      });
       const img = document.createElement('img');
       img.src = article.image;
       img.alt = article.title;
