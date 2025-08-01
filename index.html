@@ -13,16 +13,18 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f5f5f5;
+        background-color: #121212;
+        color: #f5f5f5;
       }
       /* Header with logo and hamburger */
       .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #222;
-        color: #fff;
+        background-color: #0d0d0d;
+        color: #ffffff;
         padding: 1rem;
+        border-bottom: 1px solid #333;
       }
       .logo img {
         height: 40px;
@@ -51,9 +53,9 @@
         gap: 1rem;
       }
       .card {
-        background-color: #fff;
+        background-color: #1f1f1f;
         border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         overflow: hidden;
         display: flex;
         flex-direction: column;
@@ -72,11 +74,12 @@
       .card-content h3 {
         margin: 0 0 0.5rem 0;
         font-size: 1.1rem;
+        color: #ffffff;
       }
       .card-content p {
         flex: 1;
         margin: 0 0 0.5rem 0;
-        color: #555;
+        color: #cccccc;
       }
       .card-footer {
         display: flex;
@@ -90,7 +93,8 @@
         gap: 0.25rem;
       }
       .tag {
-        background-color: #e0e0e0;
+        background-color: #333333;
+        color: #ffffff;
         border-radius: 4px;
         padding: 0.2rem 0.5rem;
         font-size: 0.8rem;
@@ -99,41 +103,66 @@
         background: none;
         border: none;
         cursor: pointer;
-        font-size: 1.2rem;
-        color: #ff9800;
+        font-size: 1.4rem;
+        color: #ffca28;
       }
       .bookmark-btn.bookmarked {
-        color: #d32f2f;
+        color: #e53935;
       }
       /* Drawer styles */
       .drawer {
         position: fixed;
         top: 0;
-        right: -260px;
-        width: 260px;
+        right: -280px;
+        width: 280px;
         height: 100%;
-        background-color: #fff;
-        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+        background-color: #1f1f1f;
+        color: #ffffff;
+        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.5);
         overflow-y: auto;
         transition: right 0.3s ease;
         padding: 1rem;
         z-index: 1000;
+        display: flex;
+        flex-direction: column;
       }
       .drawer.open {
         right: 0;
       }
-      .drawer nav a {
+      .drawer .drawer-filters > div {
+        margin-bottom: 0.8rem;
+      }
+      .drawer .drawer-filters label {
         display: block;
-        padding: 0.5rem 0;
-        color: #333;
-        text-decoration: none;
+        margin-bottom: 0.2rem;
+        color: #ffffff;
         font-weight: bold;
       }
-      .drawer nav a:hover {
-        color: #ff9800;
+      .drawer .drawer-filters select {
+        width: 100%;
+        padding: 0.4rem;
+        border-radius: 4px;
+        border: 1px solid #444;
+        background-color: #2a2a2a;
+        color: #fff;
       }
-      .drawer .filters {
-        margin-top: 1rem;
+      .drawer .drawer-nav {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .drawer .drawer-nav a {
+        display: block;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.6rem 0.5rem;
+        border-radius: 4px;
+        text-align: center;
+      }
+      .drawer .drawer-nav a:hover {
+        background-color: #444;
       }
       .drawer-overlay {
         position: fixed;
@@ -141,7 +170,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.6);
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease;
