@@ -164,16 +164,18 @@ const server = http.createServer((req, res) => {
   const filePath = path.join(__dirname, pathname === '/' ? '/index.html' : pathname);
   const ext = path.extname(filePath);
   // Allowed static file extensions
-  const allowedExts = ['.html', '.css', '.js', '.png', '.jpg', '.jpeg', '.svg'];
+  // Allowed static file extensions; include JSON to serve data files
+  const allowedExts = ['.html', '.css', '.js', '.png', '.jpg', '.jpeg', '.svg', '.json'];
   if (allowedExts.includes(ext)) {
     const staticPath = path.join(__dirname, filePath);
     if (fs.existsSync(staticPath)) {
       const fileStream = fs.createReadStream(staticPath);
       let contentType = 'text/plain';
       if (ext === '.html') contentType = 'text/html';
-      if (ext === '.css') contentType = 'text/css';
-      if (ext === '.js') contentType = 'application/javascript';
-      if (['.png', '.jpg', '.jpeg', '.svg'].includes(ext)) {
+      else if (ext === '.css') contentType = 'text/css';
+      else if (ext === '.js') contentType = 'application/javascript';
+      else if (ext === '.json') contentType = 'application/json';
+      else if (['.png', '.jpg', '.jpeg', '.svg'].includes(ext)) {
         contentType = 'image/' + ext.replace('.', '');
       }
       res.writeHead(200, { 'Content-Type': contentType });
