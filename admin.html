@@ -11,19 +11,31 @@
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f5f5f5;
+        background-color: #121212;
+        color: #f5f5f5;
       }
       /* Header and hamburger */
       .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #222;
+        background-color: #0d0d0d;
         color: #fff;
         padding: 1rem;
+        border-bottom: 1px solid #333;
+      }
+      .logo {
+        display: flex;
+        align-items: baseline;
+        gap: 0.3rem;
       }
       .logo img {
         height: 40px;
+      }
+      .logo-text {
+        font-size: 0.7rem;
+        letter-spacing: 0.05rem;
+        color: #888;
       }
       .hamburger {
         font-size: 1.8rem;
@@ -33,28 +45,39 @@
       .drawer {
         position: fixed;
         top: 0;
-        right: -260px;
-        width: 260px;
+        right: -280px;
+        width: 280px;
         height: 100%;
-        background-color: #fff;
-        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.2);
+        background-color: #1f1f1f;
+        color: #fff;
+        box-shadow: -2px 0 4px rgba(0, 0, 0, 0.5);
         overflow-y: auto;
         transition: right 0.3s ease;
         padding: 1rem;
         z-index: 1000;
+        display: flex;
+        flex-direction: column;
       }
       .drawer.open {
         right: 0;
       }
-      .drawer nav a {
-        display: block;
-        padding: 0.5rem 0;
-        color: #333;
-        text-decoration: none;
-        font-weight: bold;
+      .drawer-nav {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
       }
-      .drawer nav a:hover {
-        color: #ff9800;
+      .drawer-nav a {
+        display: block;
+        background-color: #333;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.6rem 0.5rem;
+        border-radius: 4px;
+        text-align: center;
+      }
+      .drawer-nav a:hover {
+        background-color: #444;
       }
       .drawer-overlay {
         position: fixed;
@@ -62,7 +85,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.6);
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease;
@@ -78,11 +101,11 @@
         padding: 1rem;
       }
       form {
-        background-color: #fff;
+        background-color: #1f1f1f;
         padding: 1rem;
         border-radius: 8px;
         margin-bottom: 2rem;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
       }
       form label {
         display: block;
@@ -91,9 +114,11 @@
       form input, form select {
         width: 100%;
         padding: 0.5rem;
-        border: 1px solid #ccc;
+        border: 1px solid #444;
         border-radius: 4px;
         margin-top: 0.25rem;
+        background-color: #2a2a2a;
+        color: #fff;
       }
       form button {
         margin-top: 1rem;
@@ -107,18 +132,19 @@
       table {
         width: 100%;
         border-collapse: collapse;
-        background-color: #fff;
+        background-color: #1f1f1f;
         border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
       }
       th, td {
         padding: 0.75rem;
         text-align: left;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #333;
+        color: #f5f5f5;
       }
       th {
-        background-color: #f0f0f0;
+        background-color: #2a2a2a;
       }
       tr:last-child td {
         border-bottom: none;
@@ -138,6 +164,7 @@
     <header class="header">
       <div class="logo">
         <a href="/index.html"><img src="/static/images/logo.svg" alt="Branding News logo" /></a>
+        <span class="logo-text">TODAY</span>
       </div>
       <div id="hamburger" class="hamburger">&#9776;</div>
     </header>
@@ -174,11 +201,11 @@
     </div>
     <!-- Drawer containing navigation -->
     <div id="drawer" class="drawer">
-      <nav>
+      <div class="drawer-nav">
         <a href="/index.html">Home</a>
         <a href="/bookmarks.html">Bookmarks</a>
         <a href="/admin.html">Admin</a>
-      </nav>
+      </div>
     </div>
     <div id="drawer-overlay" class="drawer-overlay"></div>
   </body>

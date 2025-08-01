@@ -38,13 +38,11 @@
         margin: 0 auto;
         padding: 1rem;
       }
-      .filters {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        margin-bottom: 1rem;
+      /* The drawer-filters container holds each filter on its own line */
+      .drawer-filters > div {
+        margin-bottom: 0.8rem;
       }
-      .filters label {
+      .drawer-filters label {
         font-weight: bold;
       }
       .cards {
@@ -185,8 +183,9 @@
   <body>
     <!-- Top header with logo and hamburger -->
     <header class="header">
-      <div class="logo">
+      <div class="logo" style="display:flex; align-items:baseline; gap:0.3rem;">
         <a href="/index.html"><img src="/static/images/logo.svg" alt="Branding News logo" /></a>
+        <span class="logo-text" style="font-size:0.7rem; letter-spacing:0.05rem; color:#888;">TODAY</span>
       </div>
       <div id="hamburger" class="hamburger">&#9776;</div>
     </header>
@@ -194,14 +193,9 @@
       <!-- Cards container remains on main page -->
       <div id="cards" class="cards"></div>
     </div>
-    <!-- Off‑canvas drawer containing navigation and filters -->
+    <!-- Off‑canvas drawer containing filters and navigation -->
     <div id="drawer" class="drawer">
-      <nav>
-        <a href="/index.html">Home</a>
-        <a href="/bookmarks.html">Bookmarks</a>
-        <a href="/admin.html">Admin</a>
-      </nav>
-      <div class="filters">
+      <div class="drawer-filters">
         <div>
           <label for="activityFilter">Activity:</label>
           <select id="activityFilter">
@@ -220,6 +214,11 @@
             <option value="">All</option>
           </select>
         </div>
+      </div>
+      <div class="drawer-nav">
+        <a href="/index.html">Home</a>
+        <a href="/bookmarks.html">Bookmarks</a>
+        <a href="/admin.html">Admin</a>
       </div>
     </div>
     <!-- Overlay to close drawer -->
