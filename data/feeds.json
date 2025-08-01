@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Design Week",
+    "url": "https://www.designweek.co.uk/feed/",
+    "activity": "Rebranding",
+    "industry": "Design",
+    "market": "International"
+  },
+  {
+    "id": 2,
+    "name": "Branding Magazine",
+    "url": "https://www.brandingmag.com/feed/",
+    "activity": "Visual Identity Refresh",
+    "industry": "Marketing",
+    "market": "International"
+  }
+]
